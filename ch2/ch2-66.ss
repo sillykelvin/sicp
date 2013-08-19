@@ -1,0 +1,5 @@
+(define (lookup given-key tree-of-records)
+  (cond ((null? tree-of-records) #f)
+        ((= (key (entry tree-of-records)) given-key) (entry tree-of-records))
+        ((> (key (entry tree-of-records)) given-key) (lookup (left-branch tree-of-records)))
+        (else (lookup (right-branch tree-of-records)))))
